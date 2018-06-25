@@ -4,7 +4,7 @@ var prop = {
   "hitEvent":[{roll:90}]
 };
 
-window.onload = function () {
+window.onload = () => {
   var go = document.getElementById('go');
   go.addEventListener('click',() => {
     prop.command.push({go:10});

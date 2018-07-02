@@ -12,12 +12,26 @@ class App extends React.Component {
   onChange(e) {
     this.setState({value: e.target.value});
   }
+  onClickSend(e){
+    if(props.command === 0) return fales;
+    console.log('send');
+    socket.emit('message', JSON.stringify(props));
+  }
+  onClick(e){
+    console.log('click');
+  }
 
   render() {
     return (
       <div>
         <p>{this.state.value}</p>
         <input type="text" value={this.state.value} onChange={this.onChange.bind(this)}/>
+        <button type="button" id="inputname" onClick={this.onClick.bind(this)}/>
+        <button type="button" id="send" onClickSend={this.onClickSend.bind(this)}/>
+        <button type="button" id="reset" onClick={this.onClick.bind(this)}/>
+        <button type="button" id="go" onClick={this.onClick.bind(this)}/>
+        <button type="button" id="roll" onClick={this.onClick.bind(this)}/>
+        <ul id="messageList"></ul>
       </div>
     );
   }
